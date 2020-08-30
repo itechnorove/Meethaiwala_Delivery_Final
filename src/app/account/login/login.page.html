@@ -1,0 +1,32 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+<ion-back-button></ion-back-button>
+</ion-buttons>
+    <ion-title>
+     Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<form #form="ngForm" (ngSubmit)="login(form.value)" style="width: 80%;margin-left: 10%">
+
+
+<ion-item>
+  <ion-label position="floating">Phone</ion-label>
+  <ion-input type="tel" [(ngModel)]="phone" required name="phone"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Password</ion-label>
+  <ion-input type="password" [(ngModel)]="password" required name="password"></ion-input>
+</ion-item>
+
+<br><br>
+<ion-button expand="block" mode="ios" type="submit">Login</ion-button>
+<p align="center" style="font-size: 14px">Forgot Password <a routerLink="/forgot" routerDirection="forward">Reset Here</a></p>
+</form>
+
+</ion-content>

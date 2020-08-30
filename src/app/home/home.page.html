@@ -1,0 +1,38 @@
+<ion-header no-border>
+<ion-toolbar color="primary">
+<ion-buttons slot="start" >
+<ion-menu-button></ion-menu-button>
+</ion-buttons>
+<ion-title *ngIf="text">{{ text.d_new_order }}</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data && text">
+
+<p style="padding: 20px 20px;background-color: #f9f9f9" *ngIf="data.length == 0">{{ text.d_no_order }}</p>
+
+<ion-card *ngFor="let order of data" mode="ios">
+
+<ion-card-header>
+
+<ion-card-title>{{ order.store }} (#{{order.id }})</ion-card-title>
+</ion-card-header>
+
+<ion-card-content style="font-size: 12px">
+
+<ion-row>
+<ion-col size="4"><b>{{ text.d_user }}</b></ion-col>
+<ion-col size="8"><b>{{ order.user.name }}</b></ion-col>
+</ion-row>
+
+<ion-row>
+<ion-col size="4"><b>{{ text.d_phone }}</b></ion-col>
+<ion-col size="8"><b><a href="tel:{{ order.user.phone }}">{{ order.user.phone }}</a></b></ion-col>
+</ion-row>
+
+<br>
+<ion-button size="small" mode="ios" (click)="detail(order)">{{ text.d_view_detail }}</ion-button>
+
+</ion-card-content>
+</ion-card>
+</ion-content>
